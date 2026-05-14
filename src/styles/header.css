@@ -1,0 +1,64 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #f5e7f3cf;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header__title {
+  color: rgb(177 88 177);
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header__continer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header__card {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header__cardTitle {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.header__cardPrice {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 0 0;
+  color: rgb(177 88 177);
+}
+
+.wallet {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wallet__value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.change {
+  font-size: 14px;
+}

@@ -1,0 +1,15 @@
+.info__symbol {
+  font-size: 32px;
+  font-weight: 700;
+  color: #dc07c0ff;
+  margin: 0 auto 10px;
+  padding: 8px 16px;
+  background-color: #f5e7f3cf;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.info__name {
+  font-size: 24px;
+  font-weight: 500;
+}
