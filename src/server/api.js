@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api_key = import.meta.env.REACT_APP_COINCAP_API_KEY;
+const api_key = import.meta.env.VITE_API_KEY;
 
 const api = axios.create({
   baseURL: "https://rest.coincap.io/v3",
