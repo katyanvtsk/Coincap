@@ -22,6 +22,7 @@ const userWalletSlice = createSlice({
       const saved = state.items.find((item) => item.id === id);
       if (saved) {
         saved.quantity += quantity;
+        saved.allPrice = saved.price * saved.quantity;
       } else {
         state.items.push({
           id: id,

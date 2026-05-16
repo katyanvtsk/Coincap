@@ -2,11 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Modal, Table, Button } from "antd";
 import { CreditCardOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Tag } from "antd";
-import { deleteCrypto, selectItems } from "./redux/userWalletSlice";
-import { selectAssets } from "./redux/assetsSlice";
+import { deleteCrypto, selectItems } from "../redux/userWalletSlice";
+import { selectAssets } from "../redux/assetsSlice";
 import { useState } from "react";
-import { changeColor, formatNum } from "./helpers/formatNumber";
-import "./styles/header.css";
+import { changeColor } from "../helpers/formatNumber";
+import { calculateWallet } from "../helpers/calculatePrice";
+import "../styles/header.css";
 
 const Wallet = () => {
   const dispatch = useDispatch();
@@ -14,30 +15,10 @@ const Wallet = () => {
   const assets = useSelector(selectAssets);
   const [isModalOpen, setIsModal] = useState(false);
 
-  //стоимость портфеля на момент покупки
-  const firstPrice = () => {
-    return wallet.reduce((acc, item) => acc + item.allPrice, 0);
-  };
-
-  //текущая стоимомть
-  const currentPrice = (item) => {
-    const currentAssets = assets.find((cr) => cr.id === item.id);
-    return currentAssets ? parseFloat(currentAssets.priceUsd) : item.price;
-  };
-
-  //текущая стоимость портфеля
-  const calculateWallet = () => {
-    let res = 0;
-    wallet.forEach((item) => {
-      const current = currentPrice(item);
-      res += current * item.quantity;
-    });
-    return res;
-  };
-  const initialValue = firstPrice();
-  const currentValue = calculateWallet();
-  const change = currentValue - initialValue;
-  const percent = (change / initialValue) * 100;
+  const { firstPrice, currentPrice, change, percent } = calculateWallet(
+    wallet,
+    assets,
+  );
 
   const columns = [
     {
@@ -84,7 +65,7 @@ const Wallet = () => {
       <div onClick={() => setIsModal(true)} className="wallet">
         <CreditCardOutlined style={{ fontSize: "34px" }} />
         <Tag className="wallet__value">
-          {`$${currentValue.toFixed(2)}`}
+          {`$${currentPrice.toFixed(2)}`}
           <div className="change">
             {change !== 0 && (
               <span style={{ color: changeColor(change) }}>
@@ -110,7 +91,7 @@ const Wallet = () => {
           rowKey="id"
           pagination={false}
         />
-        <h3>ИТОГО: {`$${currentValue.toFixed(2)}`}</h3>
+        <h3>ИТОГО: {`$${currentPrice.toFixed(2)}`}</h3>
       </Modal>
     </>
   );

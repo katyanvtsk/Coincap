@@ -1,16 +1,43 @@
-# React + Vite
+## Coincap - приложение для отслеживания криптовалют и управления портфелем.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Возможности
 
-Currently, two official plugins are available:
+- Просмотр актуальных курсов криптовалют
+- Детальная информация по каждой криптовалюте
+- Расчет прибыли/убытка в реальном времени
+- Управление портфелем
+- Сохранение данных в браузере (localeStorage)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Инструкция по использованию
 
-## React Compiler
+## 1. Главная страница:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Отображается таблица со всеми криптовалютами
+В таблице показаны: ранг, символ, название, цена, изменение за 24ч и др.
+Для просмотра детальной информации - кликните на любую строку
 
-## Expanding the ESLint configuration
+## 2.Покупка криптовалюты:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Способ 1: Из таблицы
+Нажмите на кнопку "+" в строке с нужной криптовалютой
+В появившемся модальном окне введите количество
+Нажмите "Купить"
+
+Способ 2: Со страницы информации
+Перейдите на страницу криптовалюты (клик по строке в таблице)
+В блоке покупки справа введите количество
+Нажмите "Купить"
+
+## 3. Просмотр портфеля
+
+Нажмите на карточку кошелька в правой части шапки
+Откроется модальное окно с общей стоимостью портфеля,списком всех купленных активов, количеством каждого актива, текущей стоимостью (можно удалить актив).
+
+## 4. Детальная информация о криптовалюте
+
+Страница содержит:
+
+- текущую цену
+- таблицу с детальной информацией
+- график изменения цены
+- блок для покупки валюты

@@ -1,9 +1,9 @@
 import { Table, Tag, Button, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import { selectAssets } from "./redux/assetsSlice";
+import { selectAssets } from "../redux/assetsSlice";
 import { useNavigate } from "react-router";
-import { formatNum, changeColor } from "./helpers/formatNumber";
+import { formatNum, changeColor } from "../helpers/formatNumber";
 import { useState } from "react";
 import FormModal from "./FormModal";
 
@@ -110,6 +110,7 @@ const DataTable = () => {
           open={isModal}
           onOk={handleOk}
           onCancel={handleCancel}
+          className="custom-modal"
         >
           <FormModal crypto={selectCrypto} onClose={handleCancel} />
         </Modal>

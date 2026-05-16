@@ -5,7 +5,7 @@ const initialState = {
   info: null,
   loading: false,
   error: null,
-  chart: [], //[{data, price}]
+  chart: [], //[{data, price}] для графика
 };
 
 export const getAssetsInfo = createAsyncThunk(

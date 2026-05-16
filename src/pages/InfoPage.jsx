@@ -7,10 +7,10 @@ import {
   selectInfo,
   selectLoading,
   getHistory,
-} from "./redux/cryptoSlice";
+} from "../redux/cryptoSlice";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useMemo } from "react";
-import { formatNum, changeColor } from "./helpers/formatNumber";
+import { formatNum, changeColor } from "../helpers/formatNumber";
 import moment from "moment";
 import {
   LineChart,
@@ -21,7 +21,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import "./styles/info.css";
+import "../styles/info.css";
+import Buy from "../components/Buy";
 
 const InfoPage = () => {
   const { id } = useParams();
@@ -108,7 +109,7 @@ const InfoPage = () => {
       info: "Сайт",
       crypto: (
         <a href={info.explorer} target="_blank" rel="noopener noreferrer">
-          View on Blockchain
+          Перейти на сайт
         </a>
       ),
     },
@@ -131,17 +132,24 @@ const InfoPage = () => {
   ];
 
   return (
-    <div>
+    <div className="container">
       <div className="info">
         <h2 className="info__symbol">{info.symbol}</h2>
         <h2 className="info__name">{info.name}</h2>
       </div>
 
+      <Buy />
+
       <div>
-        <Table dataSource={dataSource} columns={columns} pagination={false} />
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          pagination={false}
+          className="info__table"
+        />
       </div>
 
-      <div style={{ padding: "30px" }}>
+      <div>
         {chartData.length > 0 && (
           <ResponsiveContainer
             width="100%"

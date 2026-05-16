@@ -1,3 +1,12 @@
+.container {
+  max-width: 1200px;
+  padding: 24px;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
 .info__symbol {
   font-size: 32px;
   font-weight: 700;
@@ -12,4 +21,30 @@
 .info__name {
   font-size: 24px;
   font-weight: 500;
+}
+
+.info__table {
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+
+  .info__symbol {
+    font-size: 28px;
+    padding: 6px 20px;
+  }
+
+  .info__name {
+    font-size: 22px;
+  }
+
+  .info__button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 8px 24px;
+  }
 }

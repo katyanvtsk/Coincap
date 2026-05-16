@@ -1,12 +1,6 @@
-import DataTable from "./DataTable";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  getAssets,
-  selectAssets,
-  selectError,
-  selectLoading,
-  selectTotal,
-} from "./redux/assetsSlice";
+import DataTable from "../components/DataTable";
+import { useDispatch } from "react-redux";
+import { getAssets } from "../redux/assetsSlice";
 import { useEffect } from "react";
 
 const Home = () => {

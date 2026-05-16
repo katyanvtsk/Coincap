@@ -1,7 +1,7 @@
-import { Button, Form, Input } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { selectAssets } from "./redux/assetsSlice";
-import { addCrypto } from "./redux/userWalletSlice";
+import { Button, Form, Input, message } from "antd";
+import { useDispatch } from "react-redux";
+
+import { addCrypto } from "../redux/userWalletSlice";
 
 const FormModal = ({ crypto, onClose }) => {
   const dispatch = useDispatch();
@@ -16,12 +16,12 @@ const FormModal = ({ crypto, onClose }) => {
       }),
     );
 
-    console.log("Success:");
+    message.success(`Куплено ${values.count} ${crypto.symbol}`);
     onClose();
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Ошибка:", errorInfo);
+    message.error(`Ошибка покупки валюты: ${errorInfo}`);
   };
   return (
     <Form
